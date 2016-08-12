@@ -1,0 +1,39 @@
+allprojects  {
+  apply plugin: 'maven'
+  group = "${GROUP_ID}"
+  version = "${VERSION}"
+}
+
+subprojects {
+  apply plugin: 'java'
+  sourceCompatibility = 1.7
+  targetCompatibility = 1.7
+
+  task packageSources(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+  }
+
+  artifacts.archives packageSources
+
+  repositories {
+     mavenLocal()
+     maven { url "http://repo.maven.apache.org/maven${}" }
+     maven{ url 'http://dev.maven.com:8081/nexus/content/groups/public'}
+  }
+
+  dependencies {
+    compile "org.slf4j:slf4j-log4j12:${slf4jVersion}"
+    compile "org.slf4j:slf4j-api:${slf4jApiVersion}"
+    
+    compile "com.alibaba:dubbo:${dubboVersion}"
+    compile "javax.servlet:javax.servlet-api:${servletApiVersion}"
+    compile "javax.validation:validation-api:${validationApiVersion}"
+    compile "javax.ws.rs:javax.ws.rs-api:${rsApiVersion}"
+
+    testCompile "junit:junit:${junitVersion}"
+    testCompile "org.easymock:easymock:${easymockVersion}"
+    testCompile "org.easymock:easymockclassextension:${easymockVersion}"
+    testCompile "com.googlecode.jmockit:jmockit:${jmockitVersion}"
+  }
+}

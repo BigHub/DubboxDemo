@@ -1,0 +1,8 @@
+rootProject.name = 'tzg-user-gateway'
+include ':tzg-user-api'
+include ':tzg-user-provider'
+include ':tzg-user-consumer'
+
+project(':tzg-user-api').projectDir = "$rootDir/tzg-user-api" as File
+project(':tzg-user-provider').projectDir = "$rootDir/tzg-user-provider" as File
+project(':tzg-user-consumer').projectDir = "$rootDir/tzg-user-consumer" as File

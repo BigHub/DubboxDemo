@@ -1,0 +1,8 @@
+description = ARTIFACTG_ID
+archivesBaseName = ARTIFACTG_ID
+version = VERSION
+
+dependencies {
+    compile "javax.annotation:javax.annotation-api:${annotationApiVersion}"
+    compile "org.codehaus.jackson:jackson-mapper-asl:${jacksonMapperAslVersion}"
+}

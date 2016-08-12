@@ -1,0 +1,72 @@
+description = ARTIFACTG_ID
+archivesBaseName = ARTIFACTG_ID
+version = VERSION
+
+
+dependencies {
+    compile project(':tzg-user-api')
+
+    //spring
+    compile "org.springframework:spring-webmvc:${springVersion}"
+    compile "org.springframework:spring-context:${springVersion}"
+    compile "org.springframework:spring-jdbc:${springVersion}"
+    compile "org.springframework:spring-tx:${springVersion}"
+    compile "org.springframework:spring-orm:${springVersion}"
+    compile "org.springframework:spring-oxm:${springVersion}"
+    compile "org.springframework:spring-aop:${springVersion}"
+    compile "org.springframework.security:spring-security-web:${springSecurityVersion}"
+    compile "org.springframework.security:spring-security-config:${springSecurityVersion}"
+
+    //== 1.缺省依赖
+    compile "log4j:log4j:${log4jVersion}"
+    compile "commons-logging:commons-logging-api:${jclVersion}"
+    compile "org.javassist:javassist:${javassistVersion}"
+    compile "io.netty:netty:${nettyVersion}"
+    //== 2. 可选依赖 以下依赖，在主动配置使用相应实现策略时用到，需自行加入依赖。
+    compile "org.apache.mina:mina-core:${minaCoreVersion}"
+    compile "org.glassfish.grizzly:grizzly-core:${grizzlyCoreVersion}"
+    compile "org.apache.httpcomponents:httpclient:${httpclientVersion}"
+    compile "com.alibaba:hessian-lite:${hessianLiteVersion}"
+    compile "com.thoughtworks.xstream:xstream:${xstreamVersion}"
+    compile "com.alibaba:fastjson:${fastjsonVersion}"
+    compile "org.apache.zookeeper:zookeeper:${zookeeperVersion}"
+    compile "redis.clients:jedis:${jedisVersion}"
+    compile "com.googlecode.xmemcached:xmemcached:${xmemcachedVersion}"
+    compile "jfree:jfreechart:${jfreechartVersion}"
+    compile "com.caucho:hessian:${hessianVersion}"
+    compile "org.mortbay.jetty:jetty:${jettyVersion}"
+    compile "org.hibernate:hibernate-validator:${hibernateValidatorVersion}"
+    compile "com.github.sgroschupf:zkclient:${zkclientVersion}"
+    compile "org.apache.curator:curator-framework:${curatorFrameworkVersion}"
+    compile "org.apache.cxf:cxf-rt-frontend-simple:${cxfRtVersion}"
+    compile "org.apache.cxf:cxf-rt-transports-http:${cxfRtVersion}"
+    compile "org.apache.thrift:libthrift:${libthriftVersion}"
+    //javaEE
+    compile "org.apache.bsf:bsf-api:${bsfApiVersion}"
+    compile "javax.cache:cache-api:${cacheApiVersion}"
+    //如果要使用REST风格远程调用
+    compile "org.jboss.resteasy:resteasy-jaxrs:${resteasyJaxrsVersion}"
+    compile "org.jboss.resteasy:resteasy-client:${resteasyJaxrsVersion}"
+    //如果要使用json序列化
+    compile "org.jboss.resteasy:resteasy-jackson-provider:${resteasyJaxrsVersion}"
+    //如果要使用xml序列化
+    compile "org.jboss.resteasy:resteasy-jaxb-provider:${resteasyJaxrsVersion}"
+    //Kyro序列化
+    compile "com.esotericsoftware.kryo:kryo:${kryoVersion}"
+    compile "de.javakaffee:kryo-serializers:${kryoSerializersVersion}"
+    //FST序列化
+    compile "de.ruedigermoeller:fst:${fstVersion}"
+    //Jackson序列化
+    compile "com.fasterxml.jackson.core:jackson-databind:${jacksonVersion}"
+    compile "com.fasterxml.jackson.core:jackson-core:${jacksonVersion}"
+    //如果要使用netty server
+    testCompile "org.jboss.resteasy:resteasy-netty:${resteasyJaxrsVersion}"
+    //如果要使用Sun HTTP server
+    testCompile "org.jboss.resteasy:resteasy-jdk-http:${resteasyJaxrsVersion}"
+    //如果要使用tomcat server
+    testCompile "org.apache.tomcat.embed:tomcat-embed-core:${tomcatEmbedVersion}"
+    testCompile "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatEmbedVersion}"
+
+    testCompile "cglib:cglib-nodep:${cglibVersion}"  
+    testCompile "commons-pool:commons-pool:${commonsPoolVersion}" 
+}
